@@ -1,0 +1,20 @@
+<table class="striped centered" *ngIf="orderArr?.length>0">
+  <thead>
+    <tr>
+        <th>Customer Name</th>
+        <th>Book</th>
+        <th>Coffee</th>
+        <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let order of orderArr;">
+      <td>{{order.customer_name}}</td>
+      <td>{{order.book_name}}</td>
+      <td>{{order.cofee_name}}</td>
+      <td ><a class="waves-effect waves-light btn" (click)="onServe(order.id)"><i class="material-icons">done</i></a></td>
+    </tr>
+  </tbody>
+</table>
+<h1 class="center" *ngIf="orderArr?.length==0">All orders are served. Enjoy your day.</h1>

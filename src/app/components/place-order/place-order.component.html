@@ -1,0 +1,45 @@
+<div class="row">
+  <form class="col s12" #myForm="ngForm">
+    <div class="row">
+      <div class="input-field">
+        <i class="material-icons prefix">account_circle</i>
+        <input  id="customer" 
+                type="text" 
+                class="validate" 
+                [(ngModel)]="order.customer_name"
+                name="customer"
+                required #name="ngModel">
+        <label for="customer">Your Name</label>
+      </div>
+      <div class="input-field">
+        <i class="material-icons prefix">local_cafe</i>
+        <input  id="coffee" 
+                type="text" 
+                class="validate" 
+                placeholder="Need some caffeine?"
+                [(ngModel)]="order.cofee_name"
+                name="coffee" 
+                required>
+        <label for="coffee">Coffee</label>
+      </div>
+      <div class="input-field">
+        <i class="material-icons prefix">book</i>
+        <input  id="book" 
+                type="text" 
+                class="validate" 
+                placeholder="Fiction? Self help? Maybe poetry? We cover it all."
+                [(ngModel)]="order.book_name" 
+                name="book"
+                required>
+        <label for="book">Book</label>
+      </div>
+      <button class="waves-effect waves-light btn done-button" (click)="onPlace(myForm); myForm.reset()" [disabled]="myForm.invalid">
+        <span class="center">
+          Place Your Order
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<h1 class="center" *ngIf="isPlaced && myForm.untouched">Your order is placed. Thank You!</h1>
